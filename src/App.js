@@ -21,6 +21,16 @@ class App extends Component {
     })
   }
 
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+      {name: event.target, age: 20},
+      {name: 'Baron', age: 17},
+      ]
+    })
+
+  }
+
   render() {
 
     return (                                    //This is JSX not HTML
