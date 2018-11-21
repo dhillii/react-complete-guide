@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
 
 class App extends Component {
   state = {
@@ -24,7 +24,7 @@ class App extends Component {
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
-      {name: event.target, age: 20},
+      {name: event.target.value, age: 20},
       {name: 'Baron', age: 17},
       ]
     })
@@ -33,14 +33,25 @@ class App extends Component {
 
   render() {
 
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (                                    //This is JSX not HTML
       <div className="App">
         <h1>Daves App Here!</h1>
         <p>This is a paragraph</p>
-        <button onClick={() => this.switchNameHandler("WAVEY DAVEY")}>Switch Name</button>
+
+        <button style={style} onClick={() => this.switchNameHandler("WAVEY DAVEY")}>Switch Name</button>
+
         <Person 
         name={this.state.persons[0].name} 
-        age={this.state.persons[0].age}/>
+        age={this.state.persons[0].age}
+        changed={this.nameChangedHandler}/>
 
         <Person 
         name={this.state.persons[1].name} 
